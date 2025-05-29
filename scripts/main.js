@@ -42,7 +42,7 @@ async function getApi() {
 }
 
 
-async function getApiSearchedPokemon(inputValue = "") {
+async function getApiSearchedPokemon(inputValue) {
     try {
         const response = await fetch(`https://tyradex.app/api/v1/pokemon/${inputValue}`);
         const data = await response.json();

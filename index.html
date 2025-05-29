@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API | Pokédex</title>
+
+  <!-- ---- Links fonts - Comfortaa, Righteous, REM, EB Garamond, Libre Baskerville, Quintessential and Twinkle Star ---- -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Quintessential&family=REM:ital,wght@0,100..900;1,100..900&family=Righteous&family=Twinkle+Star&display=swap" rel="stylesheet">
+  
+  <!-- ---- Links to files -->
+  <link rel="stylesheet" href="styles/styles.min.css">
+  <script defer src="./scripts/main.js"></script>
+
+  <!-- ---- Link font awesome ---- -->
+  <script src="https://kit.fontawesome.com/338ba07762.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+      <div class="pokedex">
+        <h1><img src="./img/ball-game-poke-sport-sports-svgrepo-com.svg" alt="ball-game-poke-sport-sports-svgrepo-com">Pokédex</h1>
+        <form action="#">
+          <input type="text" id="search-pokemon" placeholder="Name of a pokemon">
+          <button class="btn-search"><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
+        </form>
+        <div class="container-btn">
+          <button data-type="All" class="All">All</button>
+          <button data-type="Eau" class="Eau">Eau</button>
+          <button data-type="Feu" class="Feu">Feu</button>
+          <button data-type="Plante" class="Plante">Plante</button>
+          <button data-type="Sol" class="Sol">Sol</button>
+          <button data-type="Roche" class="Roche">Roche</button>
+          <button data-type="Acier" class="Acier">Acier</button>
+          <button data-type="Glace" class="Glace">Glace</button>
+          <button data-type="Électrik" class="Electrique">Electrique</button>
+          <button data-type="Dragon" class="Dragon">Dragon</button>
+          <button data-type="Spectre" class="Spectre">Spectre</button>
+          <button data-type="Psy" class="Psy">Psy</button>
+          <button data-type="Normal" class="Normal">Normal</button>
+          <button data-type="Combat" class="Combat">Combat</button>
+          <button data-type="Poison" class="Poison">Poison</button>
+          <button data-type="Insecte" class="Insecte">Insecte</button>
+          <button data-type="Vol" class="Vol">Vol</button>
+          <button data-type="Ténèbres" class="Ténèbre">Ténèbres</button>
+          <button data-type="Fée" class="Fée">Fée</button>
+        </div>
+        <small>&copy; Pokémon</small>
+      </div>
+      <div class="display-selected">Hehehehe</div>
+      <div class="display-pokemon"></div>
+    </main>
+</body>
+</html>

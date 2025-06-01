@@ -69,7 +69,7 @@ async function displayApi(showAll = false) {
         const image  = createElement("img", "", "")
         image.setAttribute("src", `${element.sprites.regular}`);
         image.setAttribute("alt", `${element.name.fr}`);
-        const figcaption =  createElement("figcaption", "", `<p>Nom : ${element.name.fr}</p> <p>Name : ${element.name.en}</p>`);
+        const figcaption =  createElement("figcaption", "", `<p>${element.name.fr}</p>`);
         appendElement(figure, image);
         appendElement(figure, figcaption);
         appendElement(displayPokemon, figure);
@@ -97,7 +97,6 @@ async function displaySearchedPokemon() {
         const figcaption =  createElement("figcaption", "", 
             `
             <p>Nom : <span>${pokemon.name.fr}</span></p> 
-            <p>Name :<span> ${pokemon.name.en}</span></p>
             <p>Génération : <span>${pokemon.generation}</span></p>
             <p>Catégorie : <span>${pokemon.category}</span></p>
             <p>Type : <span><img src="${pokemon.types[0].image}" alt=""> ${pokemon.types[0].name}</span></p>
@@ -138,7 +137,7 @@ async function displayApiFiltered(typePoke) {
         const image  = createElement("img", "", "")
         image.setAttribute("src", `${element.sprites.regular}`);
         image.setAttribute("alt", `${element.name.fr}`);
-        const figcaption =  createElement("figcaption", "", `<p>Nom : ${element.name.fr}</p> <p>Name : ${element.name.en}</p>`);
+        const figcaption =  createElement("figcaption", "", `<p>${element.name.fr}</p>`);
         appendElement(figure, image);
         appendElement(figure, figcaption);
         appendElement(displayPokemon, figure);
@@ -166,7 +165,7 @@ displayPokemon.addEventListener("click", function (event) {
     const card = event.target.closest(".card");
     if (card) {
         // Extraire le nom du Pokémon de la carte cliquée
-        const nameCard = card.querySelector("figcaption p:first-child").textContent.split("Nom :")[1].trim();
+        const nameCard = card.querySelector("figcaption p:first-child").textContent.trim();
 
         // Placer le nom dans l'input de recherche
         inputSearchPokemon.value = nameCard;

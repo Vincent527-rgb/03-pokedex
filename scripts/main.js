@@ -78,7 +78,7 @@ async function displayApi(showAll = false) {
 displayApi()
 
 async function displaySearchedPokemon() {
-    const inputValue = inputSearchPokemon.value;
+    const inputValue = inputSearchPokemon.value.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // permet de retirer les accents
 
     if (inputValue === "") {
         console.log("Veuillez compléter les champs");

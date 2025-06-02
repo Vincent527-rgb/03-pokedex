@@ -10,6 +10,10 @@ const btnContainer          = document.querySelector(".container-btn");
 const displaySelected       = document.querySelector(".display-selected");
 const displayPokemon        = document.querySelector(".display-pokemon");
 
+// ==== Variables pagination ====
+let currentPage = 1;
+const pokemonPerPage = 24;
+
 // ==== Fonctions utilitaires ====
 function createElement(tag, className, content) {
     const element = document.createElement(tag);
@@ -57,12 +61,18 @@ async function getApiSearchedPokemon(inputValue) {
 }
 
 // ==== Fonctions Display API ====
-async function displayApi(showAll = false) {
+async function displayApi(showAll = false, page = currentPage) {
     const pokemon = await getApi();
     displayPokemon.innerHTML = "";
 
+    // Calculer l'index de départ et de fin pour la pagination
+    const startIndex = (page - 1) * pokemonPerPage;
+    const endIndex = startIndex + pokemonPerPage;
+
+    console.log(startIndex, "startIndex");
+    console.log(endIndex, "endtIndex");
     // Détermine combien de Pokémon afficher
-    const pokemonToDisplay = showAll ? pokemon.slice(1) : pokemon.slice(1, 25);
+    const pokemonToDisplay = showAll ? pokemon.slice(1) : pokemon.slice(startIndex + 1, endIndex + 1);
 
     pokemonToDisplay.forEach(element => {
         const figure = createElement("figure", "card", "")
@@ -74,6 +84,9 @@ async function displayApi(showAll = false) {
         appendElement(figure, figcaption);
         appendElement(displayPokemon, figure);
     });
+
+    // Mettre à jour l'information de la page
+    document.getElementById("page-info").textContent = `Page ${page}`;
 }
 displayApi()
 
@@ -93,13 +106,15 @@ async function displaySearchedPokemon() {
         image.setAttribute("src", `${pokemon.sprites.regular}`);
         image.setAttribute("alt", `${pokemon.sprites.regular}`);
 
+        // Deuxième type
+
         // Légende et détails du pokémon
         const figcaption =  createElement("figcaption", "", 
             `
             <p>Nom : <span>${pokemon.name.fr}</span></p> 
             <p>Génération : <span>${pokemon.generation}</span></p>
             <p>Catégorie : <span>${pokemon.category}</span></p>
-            <p>Type : <span><img src="${pokemon.types[0].image}" alt=""> ${pokemon.types[0].name}</span></p>
+            <p>Type : <span><img src="${pokemon.types[0].image}" alt=""> ${pokemon.types[0].name}</span> ${pokemon.types[1] ? `<span><img src="${pokemon.types[1].image}" alt=""> ${pokemon.types[1].name}</span>` : ''}</p>
             <p>Talents : <span>${pokemon.talents[0].name}</p>
             <p>Hp : <span>${pokemon.stats.hp}</span></p>
             <p>Attaque : <span>${pokemon.stats.atk}</span></p>
@@ -155,7 +170,7 @@ btnContainer.addEventListener("click", function (event) {
     if (event.target.dataset.type !== "All") {
         displayApiFiltered(event.target.dataset.type)
     } else {
-        displayApi(true)
+        displayApi(false)
     }
 })
 
@@ -177,3 +192,15 @@ displayPokemon.addEventListener("click", function (event) {
         inputSearchPokemon.value = "";
     }
 })
+
+document.getElementById("prev-page").addEventListener("click", function() {
+    if (currentPage > 1) {
+        currentPage--;
+        displayApi(false, currentPage);
+    }
+});
+
+document.getElementById("next-page").addEventListener("click", function() {
+    currentPage++;
+    displayApi(false, currentPage);
+});

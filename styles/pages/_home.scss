@@ -6,8 +6,8 @@ body {
 }
 
 main {
-    height: 100vh;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .pokedex {
@@ -66,67 +66,66 @@ main {
         border-radius: 1rem;
         cursor: pointer;
     }
+    .All {
+        grid-column: span 3;
+        width: 50%;
+        margin: 3rem auto;
+    }
+    .Eau {
+        background: linear-gradient(to bottom, #4c92cf, #71c6e9);
+    }
+    .Feu {
+        background: linear-gradient(to bottom, #fd9c53, #fdaf47);
+    }
+    .Plante {
+        background: linear-gradient(to bottom, #5eb952, #54c279);
+    }
+    .Sol {
+        background: linear-gradient(to bottom, #d77540, #d19b6b);
+    }
+    .Roche {
+        background: linear-gradient(to bottom, #c6b589, #d6c997);
+    }
+    .Acier {
+        background: linear-gradient(to bottom, #53859f, #60a7ae);
+    }
+    .Glace {
+        background: linear-gradient(to bottom, #72cfc2, #91ddd9);
+    }
+    .Electrique {
+        background: linear-gradient(to bottom, #f3d13c, #fadf75);
+    }
+    .Dragon {
+        background: linear-gradient(to bottom, #0869bf, #0381bc);
+    }
+    .Spectre {
+        background: linear-gradient(to bottom, #5166ac, #7a74d4);
+    }
+    .Psy {
+        background: linear-gradient(to bottom, #f86d74, #fea598);
+    }
+    .Normal {
+        background: linear-gradient(to bottom, #9099a0, #aaa79d);
+    }
+    .Combat {
+        background: linear-gradient(to bottom, #cd3f6a, #e8434d);
+    }
+    .Poison {
+        background: linear-gradient(to bottom, #a565c7, #c860d6);
+    }
+    .Insecte {
+        background: linear-gradient(to bottom, #90c02d, #aac932);
+    }
+    .Vol {
+        background: linear-gradient(to bottom, #88a6e3, #a5bced);
+    }
+    .Ténèbre {
+        background: linear-gradient(to bottom, #5a5367, #6e7482);
+    }
+    .Fée {
+        background: linear-gradient(to bottom, #ea8de0, #f2a7e5);
+    }
 }
-.All {
-    grid-column: span 3;
-    width: 50%;
-    margin: 3rem auto;
-}
-.Eau {
-    background: linear-gradient(to bottom, #4c92cf, #71c6e9);
-}
-.Feu {
-    background: linear-gradient(to bottom, #fd9c53, #fdaf47);
-}
-.Plante {
-    background: linear-gradient(to bottom, #5eb952, #54c279);
-}
-.Sol {
-    background: linear-gradient(to bottom, #d77540, #d19b6b);
-}
-.Roche {
-    background: linear-gradient(to bottom, #c6b589, #d6c997);
-}
-.Acier {
-    background: linear-gradient(to bottom, #53859f, #60a7ae);
-}
-.Glace {
-    background: linear-gradient(to bottom, #72cfc2, #91ddd9);
-}
-.Electrique {
-    background: linear-gradient(to bottom, #f3d13c, #fadf75);
-}
-.Dragon {
-    background: linear-gradient(to bottom, #0869bf, #0381bc);
-}
-.Spectre {
-    background: linear-gradient(to bottom, #5166ac, #7a74d4);
-}
-.Psy {
-    background: linear-gradient(to bottom, #f86d74, #fea598);
-}
-.Normal {
-    background: linear-gradient(to bottom, #9099a0, #aaa79d);
-}
-.Combat {
-    background: linear-gradient(to bottom, #cd3f6a, #e8434d);
-}
-.Poison {
-    background: linear-gradient(to bottom, #a565c7, #c860d6);
-}
-.Insecte {
-    background: linear-gradient(to bottom, #90c02d, #aac932);
-}
-.Vol {
-    background: linear-gradient(to bottom, #88a6e3, #a5bced);
-}
-.Ténèbre {
-    background: linear-gradient(to bottom, #5a5367, #6e7482);
-}
-.Fée {
-    background: linear-gradient(to bottom, #ea8de0, #f2a7e5);
-}
-
 .display-selected {
     width: 100%; height: 100%;
     color: $white-medium;
@@ -219,4 +218,8 @@ main {
             align-items: center;
         }
     }
+}
+.pagination {
+    width: 100%;
+    text-align: center;
 }
